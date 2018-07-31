@@ -53,7 +53,7 @@ Core.Znuny4OTRSAutoCheckbox = (function (TargetNS) {
         $('#' + ElementCheckboxID).prop('checked', true);
     };
 
+    Core.Init.RegisterNamespace(TargetNS, 'APP_MODULE');
+
     return TargetNS;
 }(Core.Znuny4OTRSAutoCheckbox || {}));
-
-Core.Znuny4OTRSAutoCheckbox.Init();

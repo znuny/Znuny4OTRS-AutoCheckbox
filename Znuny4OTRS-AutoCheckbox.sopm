@@ -2,16 +2,16 @@
 <otrs_package version="1.0">
     <Name>Znuny4OTRS-AutoCheckbox</Name>
     <Version>1.0.0</Version>
-    <Framework>5.0.x</Framework>
-    <PackageRequired Version="5.0.13">Znuny4OTRS-Repo</PackageRequired>
+    <Framework>6.0.x</Framework>
+    <PackageRequired Version="6.0.31">Znuny4OTRS-Repo</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
     <Description Lang="en">This package contains the functionality to check checkboxes automatically on use.</Description>
     <Description Lang="de">Dieses Paket enthält die Funktionalität um Checkboxen von Datumsfeldern automatisch bei Benutzung zu markieren.</Description>
     <Filelist>
-        <File Permission="644" Location="Kernel/Config/Files/Znuny4OTRSAutoCheckbox.xml"/>
-        <File Permission="644" Location="var/httpd/htdocs/js/Core.UI.Datepicker.js"/>
-        <File Permission="644" Location="var/httpd/htdocs/js/Core.Znuny4OTRSAutoCheckbox.js"/>
+        <File Permission="660" Location="Kernel/Config/Files/XML/Znuny4OTRSAutoCheckbox.xml"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.UI.Datepicker.js"/>
+        <File Permission="660" Location="var/httpd/htdocs/js/Core.Znuny4OTRSAutoCheckbox.js"/>
     </Filelist>
 </otrs_package>

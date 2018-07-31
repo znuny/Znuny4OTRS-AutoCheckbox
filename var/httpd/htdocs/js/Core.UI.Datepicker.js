@@ -2,7 +2,7 @@
 // Copyright (C) 2001-2018 OTRS AG, http://otrs.com/
 // Copyright (C) 2012-2018 Znuny GmbH, http://znuny.com/
 // --
-// $origin: otrs - d1f4bb2b6275ce0b33841cf4b465f1b6a3c83091 - var/httpd/htdocs/js/Core.UI.Datepicker.js
+// $origin: otrs - d8ef9ccc898ca9ef264c4eb28739e3a4de86d44d - var/httpd/htdocs/js/Core.UI.Datepicker.js
 // --
 // This software comes with ABSOLUTELY NO WARRANTY. For details, see
 // the enclosed file COPYING for license information (AGPL). If you
@@ -41,16 +41,6 @@ Core.UI.Datepicker = (function (TargetNS) {
      *      One time vacations, defined in SysConfig.
      */
         VacationDaysOneTime,
-
-    /**
-     * @private
-     * @name LocalizationData
-     * @memberof Core.UI.Datepicker
-     * @member {Object}
-     * @description
-     *      Translations.
-     */
-        LocalizationData,
 
     /**
      * @private
@@ -151,13 +141,6 @@ Core.UI.Datepicker = (function (TargetNS) {
             }
         }
 
-        if (typeof LocalizationData === 'undefined') {
-            LocalizationData = Core.Config.Get('Datepicker.Localization');
-            if (typeof LocalizationData === 'undefined') {
-                throw new Core.Exception.ApplicationError('Datepicker localization data could not be found!', 'InternalError');
-            }
-        }
-
         // Increment number of initialized datepickers on this site
         DatepickerCount++;
 
@@ -189,16 +172,66 @@ Core.UI.Datepicker = (function (TargetNS) {
                 return CheckDate(DateObject);
             },
             showOn: 'focus',
-            prevText: LocalizationData.PrevText,
-            nextText: LocalizationData.NextText,
+            prevText: Core.Language.Translate('Previous'),
+            nextText: Core.Language.Translate('Next'),
             firstDay: Element.WeekDayStart,
             showMonthAfterYear: 0,
-            monthNames: LocalizationData.MonthNames,
-            monthNamesShort: LocalizationData.MonthNamesShort,
-            dayNames: LocalizationData.DayNames,
-            dayNamesShort: LocalizationData.DayNamesShort,
-            dayNamesMin: LocalizationData.DayNamesMin,
-            isRTL: LocalizationData.IsRTL
+            monthNames: [
+                Core.Language.Translate('Jan'),
+                Core.Language.Translate('Feb'),
+                Core.Language.Translate('Mar'),
+                Core.Language.Translate('Apr'),
+                Core.Language.Translate('May'),
+                Core.Language.Translate('Jun'),
+                Core.Language.Translate('Jul'),
+                Core.Language.Translate('Aug'),
+                Core.Language.Translate('Sep'),
+                Core.Language.Translate('Oct'),
+                Core.Language.Translate('Nov'),
+                Core.Language.Translate('Dec')
+            ],
+            monthNamesShort: [
+                Core.Language.Translate('January'),
+                Core.Language.Translate('February'),
+                Core.Language.Translate('March'),
+                Core.Language.Translate('April'),
+                Core.Language.Translate('May_long'),
+                Core.Language.Translate('June'),
+                Core.Language.Translate('July'),
+                Core.Language.Translate('August'),
+                Core.Language.Translate('September'),
+                Core.Language.Translate('October'),
+                Core.Language.Translate('November'),
+                Core.Language.Translate('December')
+            ],
+            dayNames: [
+                Core.Language.Translate('Sunday'),
+                Core.Language.Translate('Monday'),
+                Core.Language.Translate('Tuesday'),
+                Core.Language.Translate('Wednesday'),
+                Core.Language.Translate('Thursday'),
+                Core.Language.Translate('Friday'),
+                Core.Language.Translate('Saturday')
+            ],
+            dayNamesShort: [
+                Core.Language.Translate('Sun'),
+                Core.Language.Translate('Mon'),
+                Core.Language.Translate('Tue'),
+                Core.Language.Translate('Wed'),
+                Core.Language.Translate('Thu'),
+                Core.Language.Translate('Fri'),
+                Core.Language.Translate('Sat')
+            ],
+            dayNamesMin: [
+                Core.Language.Translate('Su'),
+                Core.Language.Translate('Mo'),
+                Core.Language.Translate('Tu'),
+                Core.Language.Translate('We'),
+                Core.Language.Translate('Th'),
+                Core.Language.Translate('Fr'),
+                Core.Language.Translate('Sa')
+            ],
+            isRTL: Core.Config.Get('Datepicker.IsRTL')
         };
 
         Options.onSelect = function (DateText, Instance) {
@@ -239,16 +272,16 @@ Core.UI.Datepicker = (function (TargetNS) {
         if (!$('#' + Core.App.EscapeSelector(Element.Day.attr('id')) + 'DatepickerIcon').length) {
 
             // add datepicker icon and click event
-            $DatepickerElement.after('<a href="#" class="DatepickerIcon" id="' + Element.Day.attr('id') + 'DatepickerIcon" title="' + LocalizationData.IconText + '"><i class="fa fa-calendar"></i></a>');
+            $DatepickerElement.after('<a href="#" class="DatepickerIcon" id="' + Element.Day.attr('id') + 'DatepickerIcon" title="' + Core.Language.Translate('Open date selection') + '"><i class="fa fa-calendar"></i></a>');
 
             if (Element.DateInFuture) {
-                ErrorMessage = Core.Config.Get('Datepicker.ErrorMessageDateInFuture');
+                ErrorMessage = Core.Language.Translate('Invalid date (need a future date)!');
             }
             else if (Element.DateNotInFuture) {
-                ErrorMessage = Core.Config.Get('Datepicker.ErrorMessageDateNotInFuture');
+                ErrorMessage = Core.Language.Translate('Invalid date (need a past date)!');
             }
             else {
-                ErrorMessage = Core.Config.Get('Datepicker.ErrorMessage');
+                ErrorMessage = Core.Language.Translate('Invalid date!');
             }
 
             // Add validation error messages for all dateselection elements
@@ -265,7 +298,7 @@ Core.UI.Datepicker = (function (TargetNS) {
             }
         }
 
-        $('#' + Core.App.EscapeSelector(Element.Day.attr('id')) + 'DatepickerIcon').unbind('click.Datepicker').bind('click.Datepicker', function () {
+        $('#' + Core.App.EscapeSelector(Element.Day.attr('id')) + 'DatepickerIcon').off('click.Datepicker').on('click.Datepicker', function () {
             $DatepickerElement.datepicker('show');
             return false;
         });
