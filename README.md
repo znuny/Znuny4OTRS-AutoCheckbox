@@ -2,7 +2,7 @@
 
 Znuny4OTRS-AutoCheckbox
 =================
-With this package you integrate Znuny repositories. Without any setting the public Znuny repository is enabled. As a Znuny customer you'll get an API key and have access to a private repostitory.
+This package contains the functionality to check checkboxes of date/datetime dynamic fields automatically on use.
 
 **Prerequisites**
 
