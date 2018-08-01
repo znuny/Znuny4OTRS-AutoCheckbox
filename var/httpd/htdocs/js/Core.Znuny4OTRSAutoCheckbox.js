@@ -21,13 +21,14 @@ Core.Znuny4OTRSAutoCheckbox = (function (TargetNS) {
     TargetNS.Init = function () {
 
         // find all select elements for date fields
-        $('select').off('change.Z40AutoCheckbox').on('change.Z40AutoCheckbox', function() {
+        // also input fields because datefields can also be input fields (sysconfig TimeInputFormat)
+        $('select,input').off('change.Z40AutoCheckbox').on('change.Z40AutoCheckbox', function() {
             TargetNS.AutoCheck(this);
         });
 
         // take care about ajax requests so we also need to have this functionality in process management
         Core.App.Subscribe('Event.AJAX.FunctionCall.Callback', function() {
-            $('select').off('change.Z40AutoCheckbox').on('change.Z40AutoCheckbox', function() {
+            $('select,input').off('change.Z40AutoCheckbox').on('change.Z40AutoCheckbox', function() {
                 TargetNS.AutoCheck(this);
             });
         });
