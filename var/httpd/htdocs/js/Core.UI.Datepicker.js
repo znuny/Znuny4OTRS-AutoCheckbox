@@ -1,12 +1,12 @@
 // --
-// Copyright (C) 2001-2018 OTRS AG, http://otrs.com/
+// Copyright (C) 2001-2018 OTRS AG, https://otrs.com/
 // Copyright (C) 2012-2018 Znuny GmbH, http://znuny.com/
 // --
 // $origin: otrs - d8ef9ccc898ca9ef264c4eb28739e3a4de86d44d - var/httpd/htdocs/js/Core.UI.Datepicker.js
 // --
 // This software comes with ABSOLUTELY NO WARRANTY. For details, see
-// the enclosed file COPYING for license information (AGPL). If you
-// did not receive this file, see http://www.gnu.org/licenses/agpl.txt.
+// the enclosed file COPYING for license information (GPL). If you
+// did not receive this file, see https://www.gnu.org/licenses/gpl-3.0.txt.
 // --
 
 "use strict";
