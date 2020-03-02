@@ -1,3 +1,3 @@
-# Znuny4OTRS-AutoCheckbox
+# Funktionalität
 
-Dieses Paket enthält die Funktionalität um Checkboxen von Datumsfeldern automatisch bei Benutzung zu markieren.
+Diese Add-on setzt den Haken der Checkbox von Datumsfeldern automatisch, sobald eine Änderung vorgenommen wurde.
