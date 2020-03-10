@@ -5,7 +5,7 @@
     <ChangeLog Version="6.0.2" Date="2018-11-16 12:36:01 +0100">Tidied code.</ChangeLog>
     <ChangeLog Version="6.0.1" Date="2018-08-07 07:33:21 +0200">Initial release</ChangeLog>
     <Framework>6.0.x</Framework>
-    <PackageRequired Version="6.0.31">Znuny4OTRS-Repo</PackageRequired>
+    <PackageRequired Version="6.0.56">Znuny4OTRS-Repo</PackageRequired>
     <Vendor>Znuny GmbH</Vendor>
     <URL>http://znuny.com/</URL>
     <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
